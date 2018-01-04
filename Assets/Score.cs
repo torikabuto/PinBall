@@ -27,21 +27,25 @@ public class Score : MonoBehaviour {
 	void OnCollisionEnter(Collision other) {
 
 			//SmallStarにボールが当った際Score+10
-			if (other.gameObject.tag == "SmallStarTag") {
-			score= 10;
-			}
+		if (other.gameObject.tag == "SmallStarTag") {
+			score = 10;
+		}
 			//LargeStarにボールが当たった際Score+20
 			else if (other.gameObject.tag == "LargeStarTag") {
 			score = 20;
-			}
+		}
 			//SmallCloudにボールが当たった際Score+15
 			else if (other.gameObject.tag == "SmallCloudTag") {
 			score = 15;
-			}
+		}
 			//LargeCloudにボールが当たった際Score+30
 			else if (other.gameObject.tag == "LargeCloudTag") {
 			score = 30;
-			}
+		} 
+		//障害物以外のものにボールが当たった際加点なし
+		else {
+			score = 0;
+		}
 		sum += score;
 		//スコアを表示
 		this.scoreText.GetComponent<Text> ().text = "Score:" + sum;
